@@ -105,7 +105,12 @@ function createOptions1() {
 
   for (index in coinlistFiltered) {
     option += "<a href='javascript:void(0)' onclick='doSomething()'>" + coinlistFiltered[index].FullName + "</option>";
+    //Limit amount of tokens shown to 20
+    if (index > 20) {
+      break;
+    }
   }
+
   document.getElementById("all-token").innerHTML = option;
 
   //parent.insertAdjacentHTML("beforeend", option);
