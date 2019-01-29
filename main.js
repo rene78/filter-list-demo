@@ -83,3 +83,31 @@ function toggleDropdownVisibility(e) {
   dropdown.classList.toggle("show");
   //document.getElementById("myDropdown").classList.toggle("show");
 }
+
+/* New functions --------------------------------------------------------------------------------------*/
+function filterCoins1(e) {
+  var input = e.value.toUpperCase();
+  // console.log(input);
+  coinlistFiltered = coinlist.filter(function (coin) {
+    if (coin.FullName.toUpperCase().indexOf(input) > -1) {
+      return coin;
+    }
+  });
+  console.log(coinlistFiltered);
+  createOptions1();
+}
+
+//Create options for dropdown menu. ATTENTION: Change this later to be created on page load, not onclick!
+function createOptions1() {
+  var option = "";
+  for (index in coinlistFiltered) {
+    option += "<option onclick='writeToNameField(this)'>" + coinlistFiltered[index].FullName + "</option>";
+  }
+  document.getElementById("new-select").innerHTML = option;
+  // e.parentElement.lastElementChild.lastElementChild.innerHTML = option;
+}
+
+//When the user clicks on the text field, toggle between hiding and showing the dropdown content
+function showDropdown() {
+  document.getElementById("myDropdown1").classList.toggle("show");
+}
