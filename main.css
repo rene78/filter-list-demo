@@ -46,7 +46,7 @@
   overflow: auto;
   border: 1px solid #ddd;
   z-index: 1;
-  max-height: 10em;
+  /* max-height: 10em; */
 }
 
 .dropdown-content1 a {
@@ -55,6 +55,8 @@
   text-decoration: none;
   display: block;
 }
+
+.dropdown a:hover {background-color: #ddd;}
 
 #new-select {
   width: 100%;

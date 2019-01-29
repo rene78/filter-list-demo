@@ -20,6 +20,11 @@ var coinlist = [
     "FullName": "Nxt (NXT)"
   },
   {
+    "Symbol": "ETH",
+    "CoinName": "Ethereum",
+    "FullName": "Ethereum (ETH)"
+  },
+  {
     "Symbol": "ETC",
     "CoinName": "Ethereum Classic",
     "FullName": "Ethereum Classic (ETC)"
@@ -10258,11 +10263,6 @@ var coinlist = [
     "Symbol": "ALTOCAR",
     "CoinName": "AltoCar",
     "FullName": "AltoCar (ALTOCAR)"
-  },
-  {
-    "Symbol": "ETH",
-    "CoinName": "Ethereum",
-    "FullName": "Ethereum (ETH)"
   },
   {
     "Symbol": "BEE",

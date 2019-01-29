@@ -98,26 +98,36 @@ function filterCoins1(e) {
   createOptions1();
 }
 
-//Create options for dropdown menu. ATTENTION: Change this later to be created on page load, not onclick!
+//Create options for dropdown menu.
 function createOptions1() {
-  var parent = document.getElementById("myDropdown1");
   var option = "";
 
   for (index in coinlistFiltered) {
-    option += "<a href='javascript:void(0)' onclick='doSomething()'>" + coinlistFiltered[index].FullName + "</option>";
-    //Limit amount of tokens shown to 20
-    if (index > 20) {
+    option += "<a href='javascript:void(0)' onclick='doSomething(this, " + index + ")'>" + coinlistFiltered[index].FullName + "</option>";
+    //Limit amount of tokens shown to 6
+    if (index >= 5) {
       break;
     }
   }
 
   document.getElementById("all-token").innerHTML = option;
-
-  //parent.insertAdjacentHTML("beforeend", option);
-  // e.parentElement.lastElementChild.lastElementChild.innerHTML = option;
 }
 
 //When the user clicks on the text field, toggle between hiding and showing the dropdown content
 function showDropdown() {
   document.getElementById("myDropdown1").classList.toggle("show");
+}
+
+function doSomething(e, index) {
+  var fullName = coinlistFiltered[index].FullName;
+  console.log(fullName);
+  var inputField = e.parentElement.parentElement.parentElement.firstElementChild;
+  var cryptoTicker = e.parentElement.parentElement.parentElement.parentElement.parentElement.children.item(3).firstElementChild;
+  var cryptoName = e.parentElement.parentElement.parentElement.parentElement.parentElement.children.item(4).firstElementChild;
+
+  inputField.innerText = coinlistFiltered[index].FullName;
+  cryptoTicker.value = coinlistFiltered[index].Symbol;
+  cryptoName.value = coinlistFiltered[index].CoinName;
+
+  console.log(inputField);
 }
