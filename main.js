@@ -59,6 +59,7 @@ function writeToNameField(e) {
   var inputField = e.parentElement.parentElement.parentElement.firstElementChild;
   var cryptoTicker = e.parentElement.parentElement.parentElement.parentElement.children.item(3).firstElementChild;
   var cryptoName = e.parentElement.parentElement.parentElement.parentElement.children.item(4).firstElementChild;
+
   inputField.value = coinlistFiltered[selectedCoinIndex].FullName;
   cryptoTicker.value = coinlistFiltered[selectedCoinIndex].Symbol;
   cryptoName.value = coinlistFiltered[selectedCoinIndex].CoinName;
@@ -99,11 +100,15 @@ function filterCoins1(e) {
 
 //Create options for dropdown menu. ATTENTION: Change this later to be created on page load, not onclick!
 function createOptions1() {
+  var parent = document.getElementById("myDropdown1");
   var option = "";
+
   for (index in coinlistFiltered) {
-    option += "<option onclick='writeToNameField(this)'>" + coinlistFiltered[index].FullName + "</option>";
+    option += "<a href='javascript:void(0)' onclick='doSomething()'>" + coinlistFiltered[index].FullName + "</option>";
   }
-  document.getElementById("new-select").innerHTML = option;
+  document.getElementById("all-token").innerHTML = option;
+
+  //parent.insertAdjacentHTML("beforeend", option);
   // e.parentElement.lastElementChild.lastElementChild.innerHTML = option;
 }
 
