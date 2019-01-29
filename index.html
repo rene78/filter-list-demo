@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Dropdown</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+  <script src="coinlist_complete.js"></script>
+  <script src="main.js"></script>
+</head>
+
+<body>
+  <button onclick="writeToTable()">Write to table</button>
+  <form id="myform">
+    <table id="mytable">
+      <thead>
+        <tr>
+          <th> Ticker (Auswahl) </th>
+          <th> Amount of Token </th>
+          <th> Invested Sum </th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>
+            <input type="text" onclick="toggleDropdownVisibility(this);createOptions(this)" onfocusout="hideDropdown(this)"
+              class="filter_coins" placeholder="Select coin..." onkeyup="filterCoins(this)" autocomplete="off">
+            <div id="myDropdown" class="dropdown-content">
+              <select class="selectCoin" size="5"> </select>
+            </div>
+          </td>
+          <td> <input type="number" name="crypto_qty" class="crypto_qty" value=""> </td>
+          <td> <input type="number" name="crypto_invested_sum" class="crypto_invested_sum" value=""> </td>
+          <td> <input type="string" name="crypto_ticker" class="crypto_ticker" value="" disabled> </td>
+          <td> <input type="string" name="crypto_name" class="crypto_name" value="" disabled> </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" onclick="toggleDropdownVisibility(this);createOptions(this)" onfocusout="hideDropdown(this)"
+              class="filter_coins" placeholder="Select coin..." onkeyup="filterCoins(this)" autocomplete="off">
+            <div id="myDropdown" class="dropdown-content">
+              <select class="selectCoin" size="5"> </select>
+            </div>
+          </td>
+          <td> <input type="number" name="crypto_qty" class="crypto_qty" value=""> </td>
+          <td> <input type="number" name="crypto_invested_sum" class="crypto_invested_sum" value=""> </td>
+          <td> <input type="string" name="crypto_ticker" class="crypto_ticker" value="" disabled> </td>
+          <td> <input type="string" name="crypto_name" class="crypto_name" value="" disabled> </td>
+        </tr>
+      </tbody>
+    </table>
+</body>
+
+</html>
