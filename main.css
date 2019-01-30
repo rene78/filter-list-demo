@@ -21,7 +21,7 @@
   background-color: #3e8e41;
 }
 
-#my-input {
+.my-input {
   background-image: url('https://www.w3schools.com/howto/searchicon.png');
   background-position: 14px 12px;
   background-repeat: no-repeat;
@@ -31,7 +31,7 @@
   border-bottom: 1px solid #ddd;
 }
 
-#my-input:focus {outline: 3px solid #ddd;}
+.my-input:focus {outline: 3px solid #ddd;}
 
 .dropdown {
   position: relative;
@@ -46,7 +46,6 @@
   overflow: auto;
   border: 1px solid #ddd;
   z-index: 1;
-  /* max-height: 10em; */
 }
 
 .dropdown-content1 a {
@@ -58,9 +57,6 @@
 
 .dropdown a:hover {background-color: #ddd;}
 
-#new-select {
-  width: 100%;
-}
 /*For both tests*/
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */

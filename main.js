@@ -94,12 +94,12 @@ function filterCoins1(e) {
       return coin;
     }
   });
-  console.log(coinlistFiltered);
-  createOptions1();
+  //console.log(coinlistFiltered);
+  createOptions1(e);
 }
 
 //Create options for dropdown menu.
-function createOptions1() {
+function createOptions1(e) {
   var option = "";
 
   for (index in coinlistFiltered) {
@@ -110,13 +110,17 @@ function createOptions1() {
     }
   }
 
-  document.getElementById("all-token").innerHTML = option;
+  var tokenContainer = e.parentElement.querySelector('.all-token');
+  //console.log(tokenContainer);
+  tokenContainer.innerHTML = option;
 }
 
 //When the user clicks on the text field, toggle between hiding and showing the dropdown content. Remove old text in input field
-function showHideDropdown1() {
-  document.getElementById("myDropdown1").classList.toggle("show");
-  var searchField = document.getElementById("my-input");
+function showHideDropdown1(e) {
+  e.parentElement.lastElementChild.classList.toggle("show");
+  // var searchField = document.getElementById("my-input");
+  var searchField = e.parentElement.lastElementChild.firstElementChild;
+  //console.log(searchField);
   searchField.value = "";
   searchField.focus();
   searchField.scrollIntoView();
@@ -133,5 +137,5 @@ function writeToNameField1(e, index) {
   inputField.innerText = coinlistFiltered[index].FullName;
   cryptoTicker.value = coinlistFiltered[index].Symbol;
   cryptoName.value = coinlistFiltered[index].CoinName;
-  showHideDropdown1();
+  showHideDropdown1(e.parentElement.parentElement);
 }
