@@ -86,7 +86,36 @@ function toggleDropdownVisibility(e) {
 }
 
 /* New functions --------------------------------------------------------------------------------------*/
+var locNumber = 0;
 function filterCoins1(e) {
+
+  //console.log(window.event);
+  var event = window.event ? window.event : e;
+  //console.log(event);
+  var allToken = event.path[0].nextElementSibling.children;
+  //console.log(allToken);
+  //console.log(event.keyCode)
+  if (event.keyCode == '38') {
+    console.log("Up arrow");
+    return;
+  }
+  else if (event.keyCode == '40') {
+    console.log("Down arrow");
+
+    allToken[locNumber].style.backgroundColor = "yellow";
+    if (locNumber > 0) {
+      allToken[locNumber - 1].style.backgroundColor = null;
+    }
+    locNumber++;
+    console.log("locNumber",locNumber);
+    return;
+  }
+  else if (event.keyCode == '13') {
+    console.log("Enter");
+    console.log(allToken[locNumber])
+    return;
+  }
+
   var input = e.value.toUpperCase();
   // console.log(input);
   coinlistFiltered = coinlist.filter(function (coin) {
@@ -128,8 +157,8 @@ function showHideDropdown1(e) {
 }
 
 function writeToNameField1(e, index) {
-  var fullName = coinlistFiltered[index].FullName;
-  console.log(fullName);
+  /*var fullName = coinlistFiltered[index].FullName;
+  console.log(fullName);*/
   var inputField = e.parentElement.parentElement.parentElement.firstElementChild;
   var cryptoTicker = e.parentElement.parentElement.parentElement.parentElement.parentElement.children.item(3).firstElementChild;
   var cryptoName = e.parentElement.parentElement.parentElement.parentElement.parentElement.children.item(4).firstElementChild;
