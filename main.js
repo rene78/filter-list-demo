@@ -86,34 +86,59 @@ function toggleDropdownVisibility(e) {
 }
 
 /* New functions --------------------------------------------------------------------------------------*/
-var locNumber = 0;
+var locNumber;
 function filterCoins1(e) {
 
   //console.log(window.event);
-  var event = window.event ? window.event : e;
+  // var event = window.event
+  // var event = window.event ? window.event : e;
   //console.log(event);
-  var allToken = event.path[0].nextElementSibling.children;
+  var allToken = window.event.path[0].nextElementSibling.children;
   //console.log(allToken);
   //console.log(event.keyCode)
   if (event.keyCode == '38') {
     console.log("Up arrow");
+    if (locNumber > 0) {
+      locNumber--;
+      console.log("locNumber", locNumber);
+      // allToken[locNumber].style.backgroundColor = "#ddd";
+      allToken[locNumber].classList.add("active");
+      if (locNumber < allToken.length) {
+        // allToken[locNumber + 1].style.backgroundColor = null;
+        allToken[locNumber + 1].classList.remove("active");
+      }
+    }
     return;
   }
   else if (event.keyCode == '40') {
     console.log("Down arrow");
-
-    allToken[locNumber].style.backgroundColor = "yellow";
-    if (locNumber > 0) {
-      allToken[locNumber - 1].style.backgroundColor = null;
+    if (locNumber < allToken.length - 1) {
+      locNumber++;
+      console.log("locNumber", locNumber);
+      // allToken[locNumber].style.backgroundColor = "#ddd";
+      allToken[locNumber].classList.add("active");
+      if (locNumber > 0) {
+        // allToken[locNumber - 1].style.backgroundColor = null;
+        allToken[locNumber - 1].classList.remove("active");
+      }
     }
-    locNumber++;
-    console.log("locNumber",locNumber);
     return;
   }
   else if (event.keyCode == '13') {
     console.log("Enter");
     console.log(allToken[locNumber])
+    //If Arrow up/down has not been used: Select uppermost coin. Else forward the selected coin.
+    if (locNumber > -1) {
+      writeToNameField1(allToken[locNumber], locNumber);
+    } else {
+      writeToNameField1(allToken[0], 0);
+    }
+
     return;
+  }
+  else if (event.keyCode == '27') {
+    console.log("Escape");
+    showHideDropdown1(e.parentElement);
   }
 
   var input = e.value.toUpperCase();
@@ -125,18 +150,22 @@ function filterCoins1(e) {
   });
   //console.log(coinlistFiltered);
   createOptions1(e);
+  locNumber = -1; //Reset counter so that after typing the first press of Arrow down starts at the top
 }
 
 //Create options for dropdown menu.
 function createOptions1(e) {
   var option = "";
-
-  for (index in coinlistFiltered) {
-    option += "<a href='javascript:void(0)' onclick='writeToNameField1(this, " + index + ")'>" + coinlistFiltered[index].FullName + "</option>";
-    //Limit amount of tokens shown to 6
-    if (index >= 5) {
-      break;
+  if (coinlistFiltered.length > 0) {
+    for (index in coinlistFiltered) {
+      option += "<a href='javascript:void(0)' onclick='writeToNameField1(this, " + index + ")'>" + coinlistFiltered[index].FullName + "</option>";
+      //Limit amount of tokens shown to 6
+      if (index >= 5) {
+        break;
+      }
     }
+  } else {
+    option = "<a href='javascript:void(0)' class='nothing-found'>Nothing found...</option>";
   }
 
   var tokenContainer = e.parentElement.querySelector('.all-token');
@@ -154,6 +183,7 @@ function showHideDropdown1(e) {
   searchField.focus();
   searchField.scrollIntoView();
   coinlistFiltered = coinlist; //Reset coinlistFiltered
+  locNumber = -1; //Reset arrow up/down counter
 }
 
 function writeToNameField1(e, index) {
