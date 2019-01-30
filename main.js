@@ -103,7 +103,7 @@ function createOptions1() {
   var option = "";
 
   for (index in coinlistFiltered) {
-    option += "<a href='javascript:void(0)' onclick='doSomething(this, " + index + ")'>" + coinlistFiltered[index].FullName + "</option>";
+    option += "<a href='javascript:void(0)' onclick='writeToNameField1(this, " + index + ")'>" + coinlistFiltered[index].FullName + "</option>";
     //Limit amount of tokens shown to 6
     if (index >= 5) {
       break;
@@ -113,12 +113,16 @@ function createOptions1() {
   document.getElementById("all-token").innerHTML = option;
 }
 
-//When the user clicks on the text field, toggle between hiding and showing the dropdown content
-function showDropdown() {
+//When the user clicks on the text field, toggle between hiding and showing the dropdown content. Remove old text in input field
+function showHideDropdown1() {
   document.getElementById("myDropdown1").classList.toggle("show");
+  var searchField = document.getElementById("my-input");
+  searchField.value = "";
+  searchField.focus();
+  coinlistFiltered = coinlist; //Reset coinlistFiltered
 }
 
-function doSomething(e, index) {
+function writeToNameField1(e, index) {
   var fullName = coinlistFiltered[index].FullName;
   console.log(fullName);
   var inputField = e.parentElement.parentElement.parentElement.firstElementChild;
@@ -128,6 +132,5 @@ function doSomething(e, index) {
   inputField.innerText = coinlistFiltered[index].FullName;
   cryptoTicker.value = coinlistFiltered[index].Symbol;
   cryptoName.value = coinlistFiltered[index].CoinName;
-
-  console.log(inputField);
+  showHideDropdown1();
 }

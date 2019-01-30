@@ -21,7 +21,7 @@
   background-color: #3e8e41;
 }
 
-#myInput {
+#my-input {
   background-image: url('https://www.w3schools.com/howto/searchicon.png');
   background-position: 14px 12px;
   background-repeat: no-repeat;
@@ -31,7 +31,7 @@
   border-bottom: 1px solid #ddd;
 }
 
-#myInput:focus {outline: 3px solid #ddd;}
+#my-input:focus {outline: 3px solid #ddd;}
 
 .dropdown {
   position: relative;
