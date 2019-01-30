@@ -119,6 +119,7 @@ function showHideDropdown1() {
   var searchField = document.getElementById("my-input");
   searchField.value = "";
   searchField.focus();
+  searchField.scrollIntoView();
   coinlistFiltered = coinlist; //Reset coinlistFiltered
 }
 
