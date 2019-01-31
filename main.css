@@ -7,6 +7,7 @@
   cursor: pointer;
   width: 100%;
   text-align: left;
+  position: relative;
 }
 
 .dropdown-button:hover, .dropdown-button:focus {
@@ -26,9 +27,9 @@
 .my-input:focus {outline: 3px solid #ddd;}
 
 .dropdown {
-  position: relative;
+  /*position: relative;
   display: inline-block;
-  width: 100%;
+  width: 100%; */
 }
 
 .dropdown-content {
