@@ -25,37 +25,39 @@
     <tbody>
       <tr class="token-row">
         <td>
-          <div class="dropdown">
-            <button onclick="showHideDropdown(this); createOptions(this)" class="dropdown-button">Select coin...<div class="triangle-down"></div></button>
-            <div class="dropdown-content">
-              <input class="my-input" type="text" placeholder="Search.." onkeyup="filterCoins(this)" autocomplete="off">
-              <div class="all-token">
-              </div>
+          <button onclick="showHideDropdown(this); createOptions(this)" class="dropdown-button">
+            Select coin...
+            <div class="triangle-down"></div>
+          </button>
+          <div class="dropdown-content">
+            <input class="my-input" type="text" placeholder="Search.." onkeyup="filterCoins(this)" autocomplete="off">
+            <div class="all-token">
             </div>
           </div>
         </td>
-        <td> <input type="number" name="crypto_qty" class="crypto_qty" value=""> </td>
-        <td> <input type="number" name="crypto_invested_sum" class="crypto_invested_sum" value=""> </td>
-        <td> <input type="string" name="crypto_ticker" class="crypto_ticker" value="" disabled> </td>
-        <td> <input type="string" name="crypto_name" class="crypto_name" value="" disabled> </td>
+        <td> <input type="number" name="crypto_qty" class="crypto-qty" value=""> </td>
+        <td> <input type="number" name="crypto_invested_sum" class="crypto-invested-sum" value=""> </td>
+        <td> <input type="string" name="crypto_ticker" class="crypto-ticker" value="" disabled> </td>
+        <td> <input type="string" name="crypto_name" class="crypto-name" value="" disabled> </td>
       </tr>
 
       <tr class="token-row">
-          <td>
-            <div class="dropdown">
-              <button onclick="showHideDropdown(this); createOptions(this)" class="dropdown-button">Select coin...<div class="triangle-down"></div></button>
-              <div class="dropdown-content">
-                <input class="my-input" type="text" placeholder="Search.." onkeyup="filterCoins(this)" autocomplete="off">
-                <div class="all-token">
-                </div>
-              </div>
+        <td>
+          <button onclick="showHideDropdown(this); createOptions(this)" class="dropdown-button">
+            Select coin...
+            <div class="triangle-down"></div>
+          </button>
+          <div class="dropdown-content">
+            <input class="my-input" type="text" placeholder="Search.." onkeyup="filterCoins(this)" autocomplete="off">
+            <div class="all-token">
             </div>
-          </td>
-          <td> <input type="number" name="crypto_qty" class="crypto_qty" value=""> </td>
-          <td> <input type="number" name="crypto_invested_sum" class="crypto_invested_sum" value=""> </td>
-          <td> <input type="string" name="crypto_ticker" class="crypto_ticker" value="" disabled> </td>
-          <td> <input type="string" name="crypto_name" class="crypto_name" value="" disabled> </td>
-        </tr>
+          </div>
+        </td>
+        <td> <input type="number" name="crypto_qty" class="crypto-qty" value=""> </td>
+        <td> <input type="number" name="crypto_invested_sum" class="crypto-invested-sum" value=""> </td>
+        <td> <input type="string" name="crypto_ticker" class="crypto-ticker" value="" disabled> </td>
+        <td> <input type="string" name="crypto_name" class="crypto-name" value="" disabled> </td>
+      </tr>
     </tbody>
   </table>
 </body>
